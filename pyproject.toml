@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "funbox-test-task"
+version = "0.1.0"
+description = ""
+authors = ["Aleksey Kosin <akosin@udm.ru>"]
+readme = "README.md"
+packages = [{include = "funbox_test_task"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "^0.89.1"
+uvicorn = "^0.20.0"
+redis = "^4.4.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
