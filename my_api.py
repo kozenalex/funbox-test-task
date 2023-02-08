@@ -50,9 +50,12 @@ async def clear_db():
     }
 
 @app.get("/visited_links")
-async def show_links():
+async def show_links(start:int = 0, to:int = 0):
     answer = []
-    keys = r.keys('*')
+    if not start or not to:
+        keys = r.keys('*')
+    else:
+        keys = [k for k in r.keys('*') if int(k) >= start and int(k) <= to]
     for key in keys:
         answer.extend(r.hmget(key, 'domains')[0].split())
     return {
